@@ -1,5 +1,7 @@
 ---
   - hosts: all
+    environment:
+      PATH: "/usr/local/bin/code:{{ ansible_env.PATH }}"
     vars_files:
       - default.config.yml
   
@@ -14,15 +16,42 @@
       #   when: configure_dotfiles
       #   tags: ['dotfiles']
 
+      # # Install apps from the mac app store
       # - role: geerlingguy.mac.mas
       #   when: mas_installed_apps or mas_installed_app_ids
       #   tags: ['mas']
 
+      # # Move apps around on the dock
       # - role: dock
       #   when: configure_dock
       #   tags: ['dock']
 
+      # Configure VSCode with extensions and settings
+      # - role: gantsign.visual-studio-code
+      #   when: vs_code_configure
+      #   users:
+      #     - username: vagrant
+      #       visual_studio_code_settings_overwrite: yes
+      #       visual_studio_code_settings: {
+      #         "window.zoomLevel": 1,
+      #         "workbench.iconTheme": "material-icon-theme",
+      #         "editor.fontFamily": "Fira Code",
+      #         "editor.fontLigatures": true,
+      #         "editor.fontSize": 16,
+      #         "workbench.colorTheme": "Sublime Material Theme - Dark",
+      #         "terminal.integrated.fontFamily": "MesloLGS NF",
+      #         "terminal.integrated.fontSize": 14
+      #       }
+
     tasks:
+      - name: Print Ansible Path
+        debug:
+          msg: "Path {{ ansible_env.PATH }}"
+
+      - name: Add VSCode Extensions
+        shell: "/usr/local/bin/code {{ item }}"
+        with_items: "{{ vs_code_extensions }}"
+        when: vs_code_configure
 
       - import_tasks: tasks/extra-packages.yml
         tags: ['extra-packages']

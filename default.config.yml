@@ -201,7 +201,34 @@ pip_packages: []
 #   version: "0.16.3" # default: N/A
 
 # Set to 'true' to configure VSCode.
-configure_vs_code: true
+vs_code_configure: true
+vs_code_extensions: 
+  - formulahendry.auto-close-tag
+  - formulahendry.auto-rename-tag
+  - coenraads.bracket-pair-colorizer
+  - mikestead.dotenv
+  - eamodio.gitlens
+  - cjhowe7.laravel-blade
+  - pkief.material-icon-theme
+  - equinusocio.vsc-material-theme
+  - equinusocio.vsc-material-theme-icons
+  - ionutvmi.path-autocomplete
+  - christian-kohler.path-intellisense
+  - bmewburn.vscode-intelephense-client
+  - felixfbecker.php-intellisense
+  - ms-python.python
+  - bbenoist.vagrant
+vs_code_settings: {
+    "window.zoomLevel": 1,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "workbench.colorTheme": "Sublime Material Theme - Dark",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.fontSize": 14
+}
+
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
