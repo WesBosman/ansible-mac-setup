@@ -1,7 +1,12 @@
 Vagrant.configure("2") do |config|
+    # Mojave box
     config.vm.box = "ashiq/osx-10.14"
     config.vm.box_version = "0.1"
-    
+
+    # Catalina box - does not seem to work
+    # config.vm.box = "GAEV/MacOS_Catalina"
+    # config.vm.box_version = "1.2.1"
+
     config.vm.network "private_network", ip: "192.168.50.4"
     
     config.ssh.forward_agent = true
