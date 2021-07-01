@@ -21,10 +21,10 @@
       #   when: mas_installed_apps or mas_installed_app_ids
       #   tags: ['mas']
 
-      # # Move apps around on the dock
-      # - role: dock
-      #   when: configure_dock
-      #   tags: ['dock']
+      # Move apps around on the dock
+      - role: dock
+        when: configure_dock
+        tags: ['dock']
 
       # Configure VSCode with extensions and settings
       # - role: gantsign.visual-studio-code
@@ -49,7 +49,7 @@
           msg: "Path {{ ansible_env.PATH }}"
 
       - name: Add VSCode Extensions
-        shell: "/usr/local/bin/code {{ item }}"
+        shell: "/usr/local/bin/code --install-extension {{ item }}"
         with_items: "{{ vs_code_extensions }}"
         when: vs_code_configure
 

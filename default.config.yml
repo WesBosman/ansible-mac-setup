@@ -8,6 +8,22 @@ configure_osx: true
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
 dockitems_remove: 
+  # Our installed apps - removing them to see if it produces the same result
+  - "1Password 7"
+  - "Android Studio"
+  - "Firefox"
+  - "Github Desktop"
+  - "Google Chrome"
+  - "Insomnia"
+  - "iTerm"
+  - "Slack"
+  - "Sequel Ace"
+  - "Spotify"
+  - "Virtualbox"
+  - "Visual Studio Code"
+  - "Zoom.us"
+  # Preinstalled apps
+  - "App Store"
   - "Contacts"
   - "FaceTime"
   - "iBooks"
@@ -215,7 +231,6 @@ vs_code_extensions:
   - ionutvmi.path-autocomplete
   - christian-kohler.path-intellisense
   - bmewburn.vscode-intelephense-client
-  - felixfbecker.php-intellisense
   - ms-python.python
   - bbenoist.vagrant
 vs_code_settings: {

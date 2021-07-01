@@ -9,6 +9,6 @@
   tags: ['dock']
 
 - name: Ensure Dock item {{ item.name | default(item) }} exists.
-  ansible.builtin.command: "'{{ dock_path }}' --add '{{ item.path }}'"
+  ansible.builtin.command: "'{{ dock_path }}' --add '{{ item.path }}' --no-restart"
   when: dockitem_exists.rc >0
   tags: ['dock']
